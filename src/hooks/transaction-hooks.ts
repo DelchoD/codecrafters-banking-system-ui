@@ -27,6 +27,17 @@ export function useGetTransactionsByUserId(userId: string) {
     return [transactions];
 }
 
+export function useGetTransactionsByAccountId(accountId: string | undefined) {
+
+    const [transactions, setTransactions] = useState([]);
+
+    useEffect(() => {
+
+    }, [accountId]);
+
+    return [transactions];
+}
+
 export function useGetTransactionById(transactionId: string | undefined) {
 
     const [transaction, setTransaction] = useState({});
@@ -43,6 +54,6 @@ export function useGetTransactionById(transactionId: string | undefined) {
 
 
 export function useCreateTransaction() {
-    
+
     //return method from service
 }
