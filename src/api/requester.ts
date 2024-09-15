@@ -1,9 +1,15 @@
 import { RequestOptions } from "../types/RequestOptions";
 
 
-function requester(method: string, url: string, data: any): Promise<any> {
+function requester(method: string, url: string, data: any = ''): Promise<any> {
 
     let options: RequestOptions = {};
+
+    if(method == 'GET' && data) {
+
+        const params = new URLSearchParams(data);
+        url += `?${params.toString()}`;
+    }
 
     if (method == 'POST' || method == 'PUT') {
 
@@ -16,15 +22,16 @@ function requester(method: string, url: string, data: any): Promise<any> {
         }
     }
 
+
     return fetch(url, options)
         .then(res => res.json());
 }
 
 
-const get = requester.bind('GET');
-const post = requester.bind('POST');
-const put = requester.bind('PUT');
-const del = requester.bind('DELETE');
+const get = requester.bind(null, 'GET');
+const post = requester.bind(null, 'POST');
+const put = requester.bind(null, 'PUT');
+const del = requester.bind(null, 'DELETE');
 
 
 export default {
