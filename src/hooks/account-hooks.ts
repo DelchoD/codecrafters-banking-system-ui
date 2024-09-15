@@ -30,7 +30,10 @@ export function useGetAccountsByUserId(userId: string) {
 
 export function useGetAccountById(accountId: string | undefined) {
 
-    const [account, setAccount] = useState({});
+    const [account, setAccount] = useState({
+        balance: '',
+        iban: '',
+    });
 
     useEffect(() => {
 

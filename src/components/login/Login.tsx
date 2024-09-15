@@ -19,6 +19,7 @@ export default function Login() {
 
         <>
             <h2 className={styles['login-title']}>Login</h2>
+            
             <Form className={styles['login-form']}>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
