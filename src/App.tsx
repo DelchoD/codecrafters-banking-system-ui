@@ -15,6 +15,7 @@ import Profile from './components/profile/Profile'
 import Register from './components/register/Register'
 import TransactionsMine from './components/transactions-mine/TransactionsMine'
 import AccountEdit from './components/account-edit/AccountEdit'
+import Sidebar from './components/navbar/Sidebar';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
 
     <AuthContextProvider>
 
-      <Header />
+      <Sidebar></Sidebar>
 
       <main>
 

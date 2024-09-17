@@ -1,0 +1,17 @@
+div button 
+{
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0px 5px 0px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.active 
+{
+    font-weight: bold !important;
+    background-color: black !important;
+}
