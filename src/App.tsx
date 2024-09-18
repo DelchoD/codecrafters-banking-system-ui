@@ -17,7 +17,6 @@ import TransactionsMine from './components/transactions-mine/TransactionsMine'
 import AccountEdit from './components/account-edit/AccountEdit'
 import AccountDetails from './components/account-details/AccountDetails';
 
-
 function App() {
 
   return (
@@ -53,6 +52,8 @@ function App() {
 
 
       <Footer />
+
+
 
     </AuthContextProvider>
   )

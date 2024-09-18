@@ -14,10 +14,10 @@ export default function TransactionsMine() {
 
     return (
         <>
-            {transactions.map(transaction => <TransactionListItem
+            {/* {transactions.map(transaction => <TransactionListItem
                 transaction={transaction}
-            />
-            )}
+            /> */}
+            
 
         </>
     )
