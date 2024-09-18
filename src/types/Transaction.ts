@@ -1,9 +1,18 @@
+export interface Transaction {
+    _id: string;
+    amount: number;
+    date: string;
+    reason: string;
+    iban_from: string;
+    iban_to: string;
+    type: string; 
+}
 
-export type Transaction = {
-    _id : string,
-    amount : Number,
-    date : string,
-    reason : String,
-    iban_from : String,
-    iban_to : string
+export interface TransactionListItemProps {
+    amount: number;
+    date: string;
+    reason: string;
+    iban_from: string;
+    iban_to: string;
+    type: string; 
 }
