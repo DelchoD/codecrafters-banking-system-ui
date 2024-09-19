@@ -1,0 +1,30 @@
+
+.details-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6em;
+    justify-content: center;
+    padding-top: 4em;
+}
+
+.details-heading {
+    font-size: 2.5em;
+}
+
+.balance-text,
+.iban-text {
+    
+    font-size: 1.2em;
+}
+
+.iban-text {
+    margin-bottom: 1.5em;
+}
+
+.account-info {
+    text-align: start;
+}
+
+.transaction-list {
+    margin-bottom: 2em;
+}

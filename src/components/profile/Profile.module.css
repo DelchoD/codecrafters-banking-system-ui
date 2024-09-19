@@ -1,21 +1,21 @@
-.register-title {
+.profile-title {
     font-size: 3em;
 }
 
-.register-form {
+.profile-form {
     margin-top: 2em;
 }
 
-.register-label {
+.form-label {
     text-align: start;
 }
 
-.register-btn {
+.profile-btn {
     display: block;
     width: 30em;
     margin-top: 3em;
 }
 
-.register-wrapper-div {
+.profile-wrapper {
     padding-top: 4em;
 }
