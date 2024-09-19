@@ -1,5 +1,5 @@
 import  { useState } from "react";
-import { Navbar, Nav, Button, Offcanvas, Collapse } from "react-bootstrap";
+import { Navbar, Nav, Button, Offcanvas} from "react-bootstrap";
 import { NavLink } from 'react-router-dom';
 import { FaBars } from "react-icons/fa"; // For the hamburger icon
 
