@@ -15,17 +15,14 @@ import Profile from './components/profile/Profile'
 import Register from './components/register/Register'
 import TransactionsMine from './components/transactions-mine/TransactionsMine'
 import AccountEdit from './components/account-edit/AccountEdit'
-import Sidebar from './components/navbar/Sidebar';
-
+import Sidebar from './components/sidebar/Sidebar'
 
 function App() {
 
   return (
 
     <AuthContextProvider>
-
       <Sidebar></Sidebar>
-
       <main>
 
         <Routes>
