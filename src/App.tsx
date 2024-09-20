@@ -25,7 +25,6 @@ function App() {
     <AuthContextProvider>
       <Sidebar></Sidebar>
       <main>
-
         <Routes>
 
           <Route path='/' element={<Home />} />
@@ -42,7 +41,7 @@ function App() {
           <Route path='/account/:accountId/details' element={<AccountDetails />} />
           <Route path='/account/:accountId/edit' element={<AccountEdit />} />
 
-          <Route path='/transaction/mine' element={<TransactionsMine />} />
+          <Route path='/transactions/history' element={<TransactionsMine />} />
 
 
         </Routes>

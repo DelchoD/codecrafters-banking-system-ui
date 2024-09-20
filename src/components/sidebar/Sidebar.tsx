@@ -2,6 +2,7 @@ import  { useState } from "react";
 import { Navbar, Nav, Button, Offcanvas} from "react-bootstrap";
 import { NavLink } from 'react-router-dom';
 import { FaBars } from "react-icons/fa"; // For the hamburger icon
+import "./sidebar.css"
 
 const Sidebar = () => {
   const [showOffcanvas, setShowOffCanvas] = useState(false);
@@ -36,7 +37,7 @@ const Sidebar = () => {
   return (
     <div>
       {/* Top Navbar with Toggle button for small screens */}
-      <Navbar bg="dark" variant="dark" expand="lg" className="d-lg-none vh-100 position-fixed top-0 start-0 d-flex flex-column justify-content-start">
+      <Navbar bg="dark" variant="dark" expand="lg" className="d-lg-none h-100 position-fixed top-0 start-0 d-flex flex-column justify-content-start">
       <Navbar.Brand href="/" className="ms-2 d-flex justify-content-center">
         <div className="d-flex flex-column align-items-center mt-2" style={{maxWidth:"20%", fontSize: "12px"}}>
           {logo}
@@ -49,7 +50,7 @@ const Sidebar = () => {
       </Navbar>
 
       {/* Sidebar for large screens */}
-      <div className="d-none d-lg-flex flex-column align-items-center bg-dark text-white vh-100 position-fixed top-0 start-0" style={{ width: "200px" }}>
+      <div className="d-none d-lg-flex flex-column align-items-center bg-dark text-white h-100 position-fixed top-0 start-0" style={{ width: "200px" }}>
       <Navbar.Brand href="/" className="ms-2">
         <div className="d-flex flex-column align-items-center mt-3">
           {logo}
@@ -92,8 +93,8 @@ const Sidebar = () => {
       </div>
 
       {/* Offcanvas for small screens */}
-      <Offcanvas show={showOffcanvas} onHide={handleCloseOffcanvas} className="bg-dark text-white vh-100 offcanvas-custom position-fixed top-0 start-0"  
-      style={{width: window.innerWidth < 768 ? '50%' : window.innerWidth < 1024 ? '30%' : '20%',}}> {/* inline-css because bootstraps overrides it otherwise */}
+      <Offcanvas show={showOffcanvas} onHide={handleCloseOffcanvas} className="bg-dark text-white h-100 offcanvas-custom position-fixed top-0 start-0"  
+      style={{width: window.innerWidth < 768 ? '50vw' : window.innerWidth < 1024 ? '30vw' : '20vw',}}> {/* inline-css because bootstraps overrides it otherwise */}
         <Offcanvas.Header closeButton closeVariant="white">
           <Offcanvas.Title>
             <div className="d-flex flex-column align-items-center mt-2">
@@ -104,7 +105,7 @@ const Sidebar = () => {
         </Offcanvas.Header>
         <Offcanvas.Body>
         <Nav className="flex-column">
-          <NavLink to="/dashboard" className="nav-link text-white mt-2"
+          <NavLink to="/dashboard" className="nav-link text-white mt-2" onClick={handleCloseOffcanvas}
           style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal',})}>
           <div className="d-flex flex-column justify-content-center align-items-center">
             {dashboardIcon}
@@ -112,7 +113,7 @@ const Sidebar = () => {
           </div>  
             
           </NavLink>          
-          <NavLink to="/accounts" className="nav-link text-white mt-2"
+          <NavLink to="/accounts" className="nav-link text-white mt-2" onClick={handleCloseOffcanvas}
           style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal',})}>
           <div className="d-flex flex-column justify-content-center align-items-center">
             {accountsIcon}
@@ -120,14 +121,17 @@ const Sidebar = () => {
           </div>
             
           </NavLink>
-          <NavLink to="/transactions" className="nav-link text-white mt-2"
+          <NavLink to="/transactions" className="nav-link text-white mt-2" onClick={handleCloseOffcanvas}
           style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal',})}>
             <div className="d-flex flex-column justify-content-center align-items-center">
               {transactionsIcon}
               <p>Transactions</p>
             </div>
           </NavLink>
-          <NavLink to="/profile" onClick={handleProfileClick} className="nav-link text-white mt-2 d-flex flex-column justify-content-center align-items-center"
+          <NavLink to="/profile" onClick={() => { 
+              handleProfileClick(); 
+              handleCloseOffcanvas();}}
+              className="nav-link text-white mt-2 d-flex flex-column justify-content-center align-items-center"
           style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal',})}>
             <div className="d-flex flex-column justify-content-center align-items-center">
               {profileIcon}
