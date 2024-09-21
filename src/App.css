@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+
+main {
+  margin-left: 200px; /* so content doesnt go into the sidebar, since its positioning is fixed */
+}
+
+@media (max-width: 768px) {
+  main {
+    margin-left: 20%;
+  }
+}
