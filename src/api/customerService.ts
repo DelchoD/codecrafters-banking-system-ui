@@ -1,7 +1,30 @@
 import requester from "./requester";
 
 
-//Add methods which communicate with the API using requester module
+const baseUrl = 'http://localhost:5000/api/customers';
 
 
-//Export them 
+const getAllCustomers = () => requester.get(baseUrl);
+
+const getCustomerById = (id: string) => requester.get(`${baseUrl}/${id}`);
+
+const createAccount = (customerId: string, data: any) => 
+    requester.post(`${baseUrl}/${customerId}/create-account`, data);
+
+
+const createCustomer = (data : any) => requester.post(baseUrl, data);
+
+const updateCustomer = (id : string, data : any) =>
+    requester.put(`${baseUrl}/${id}`, data);
+
+const deleteCustomer = (id : string) => requester.del(`${baseUrl}/${id}`);
+
+
+export default {
+    getAllCustomers,
+    getCustomerById,
+    createAccount,
+    createCustomer,
+    updateCustomer,
+    deleteCustomer
+}
