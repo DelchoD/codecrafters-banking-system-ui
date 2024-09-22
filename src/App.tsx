@@ -51,6 +51,8 @@ function App() {
 
       <Footer />
 
+
+
     </AuthContextProvider>
   )
 }
