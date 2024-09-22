@@ -1,22 +1,30 @@
+
 import { ListGroup } from "react-bootstrap";
 
 
-export default function TransactionListItem({
-    // amount,
-    // date ,
-    // reason,
-    // iban_from,
-    // iban_to
-}) {
 
+interface TransactionProps {
+    transaction: {
+      id: string;
+      date: string;
+      type: string;
+      amount: number;
+      description: string;
+      iban_to: string;
+    };
+  }
+  
+  export default function TransactionListItem({ transaction }: TransactionProps) {
+    const { date, type, amount, description, iban_to } = transaction;
+    
     return (
+      <tr>
+        <td>{date}</td>
+        <td>{type}</td>
+        <td>{amount}</td>
+        <td>{description}</td>
+        <td>{iban_to}</td>
+      </tr>
+    );
+  }
 
-        <></>
-        // <ListGroup.Item>
-        //     <p>Date: {date}</p>
-        //     <p>Amount: {amount}</p>
-        //     <p>Reason: {reason}</p>
-        //     <p>From {iban_from} to {iban_to}</p>
-        // </ListGroup.Item>
-    )
-}

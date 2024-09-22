@@ -1,0 +1,24 @@
+.custom-pagination .page-item.active .page-link {
+    background-color: rgb(35, 50, 70); /* Slightly darker for active state */
+    color: white;
+    outline: 1px solid rgb(35, 50, 70);
+    font-weight: bold;  
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Subtle glow effect */
+}
+
+.custom-pagination .page-item .page-link {
+    background-color: rgb(33, 37, 41);
+    color: white;
+    border: none; /* Ensure no border on links */
+}
+
+.custom-pagination .page-item .page-link:hover {
+    background-color: rgb(55, 70, 90); /* Slightly lighter on hover */
+    color: white;
+}
+
+.custom-pagination .page-item .page-link:focus {
+    outline: none; /* Remove focus outline */
+    box-shadow: none; /* Remove any box-shadow */
+}
