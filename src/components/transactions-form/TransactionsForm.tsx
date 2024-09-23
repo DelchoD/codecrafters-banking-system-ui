@@ -55,7 +55,7 @@ const TransactionForm: React.FC = () => {
     if (!transactionData.ibanTo) {
       newErrors.ibanTo = "Please enter a valid IBAN to send to.";
     }
-    if (transactionData.ibanFrom === transactionData.ibanTo) {
+    if (transactionData.ibanFrom === transactionData.ibanTo && transactionData.ibanTo) {
       newErrors.ibanTo = "Cannot send to the same account.";
     }
     return newErrors;
