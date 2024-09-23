@@ -1,0 +1,15 @@
+.custom-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-form-group {
+    margin-bottom: 20px;
+}
+  
+button {
+    margin-top: 20px;
+}
+    
