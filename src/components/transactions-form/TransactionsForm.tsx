@@ -11,6 +11,7 @@ interface TransactionData {
   ibanTo: string;
 }
 
+//!!! Must be changed when backend is connected
 const mockAccounts = [
   { iban: "DE89370400440532013000", name: "Account 1" },
   { iban: "DE89370400440532013001", name: "Account 2" },
@@ -71,7 +72,8 @@ const TransactionForm: React.FC = () => {
     }
 
     setIsSubmitting(true);
-    try {
+    try { 
+      //!!! Must be changed when backend is connected
       await mockCreateTransaction(transactionData);
       alert("Transaction successfully created!");
       setTransactionData({
