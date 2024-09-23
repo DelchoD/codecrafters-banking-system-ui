@@ -17,6 +17,7 @@ import TransactionsMine from './components/transactions-mine/TransactionsMine'
 import AccountEdit from './components/account-edit/AccountEdit'
 import Sidebar from './components/sidebar/Sidebar'
 import AccountDetails from './components/account-details/AccountDetails';
+import TransactionsForm from './components/transactions-form/TransactionsForm';
 
 function App() {
 
@@ -41,8 +42,8 @@ function App() {
           <Route path='/account/:accountId/details' element={<AccountDetails />} />
           <Route path='/account/:accountId/edit' element={<AccountEdit />} />
 
-          <Route path='/transactions/history' element={<TransactionsMine />} />
-
+          <Route path='/transactions' element={<TransactionsForm />} />
+          <Route path='/transactions/history' element={<TransactionsMine/>} />
 
         </Routes>
 
