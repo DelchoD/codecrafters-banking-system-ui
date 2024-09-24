@@ -1,7 +1,7 @@
 import requester from "./requester";
 
 
-const baseUrl = 'http://localhost:5000/api/transactions';
+const baseUrl = 'http://localhost:7082/api/transactions';
 
 
 const getAllTransactions = () => requester.get(baseUrl);
