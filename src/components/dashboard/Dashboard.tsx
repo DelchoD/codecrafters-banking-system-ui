@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate from react
 // Mock data for customer accounts, this should be replaced by API call in future.
 interface Transaction {
   date: string;
-  type: 'deposit' | 'withdrawal';
   amount: number;
   description: string;
 }
@@ -24,12 +23,12 @@ const accounts: Account[] = [
     name: 'Checking Account',
     balance: 1000,
     recentTransactions: [
-      { date: '2024-09-01', type: 'deposit', amount: 200, description: 'Salary Deposit' },
-      { date: '2024-09-02', type: 'withdrawal', amount: 50, description: 'ATM Withdrawal' },
-      { date: '2024-09-03', type: 'deposit', amount: 150, description: 'Freelance Work' },
-      { date: '2024-09-04', type: 'withdrawal', amount: 100, description: 'Groceries' },
-      { date: '2024-09-05', type: 'deposit', amount: 300, description: 'Investment Return' },
-      { date: '2024-09-06', type: 'withdrawal', amount: 75, description: 'Dining Out' },
+      { date: '2024-09-01', amount: 200, description: 'Salary Deposit' },
+      { date: '2024-09-02', amount: 50, description: 'ATM Withdrawal' },
+      { date: '2024-09-03', amount: 150, description: 'Freelance Work' },
+      { date: '2024-09-04', amount: 100, description: 'Groceries' },
+      { date: '2024-09-05', amount: 300, description: 'Investment Return' },
+      { date: '2024-09-06', amount: 75, description: 'Dining Out' },
     ],
   },
   {
@@ -37,8 +36,8 @@ const accounts: Account[] = [
     name: 'Savings Account',
     balance: 5000,
     recentTransactions: [
-      { date: '2024-09-01', type: 'deposit', amount: 1000, description: 'Initial Deposit' },
-      { date: '2024-09-10', type: 'withdrawal', amount: 200, description: 'Emergency Fund Withdrawal' },
+      { date: '2024-09-01', amount: 1000, description: 'Initial Deposit' },
+      { date: '2024-09-10', amount: 200, description: 'Emergency Fund Withdrawal' },
     ],
   },
 ];
@@ -79,7 +78,6 @@ const Dashboard: React.FC = () => {
                     <thead>
                       <tr>
                         <th>Date</th>
-                        <th>Type</th>
                         <th>Amount</th>
                         <th>Description</th>
                       </tr>
@@ -89,7 +87,6 @@ const Dashboard: React.FC = () => {
                       {account.recentTransactions.slice(0, 5).map((transaction, index) => (
                         <tr key={index}>
                           <td>{transaction.date}</td>
-                          <td>{transaction.type}</td>
                           <td>${transaction.amount}</td>
                           <td>{transaction.description}</td>
                         </tr>
