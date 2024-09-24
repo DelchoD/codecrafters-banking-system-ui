@@ -1,7 +1,7 @@
 import requester from "./requester";
 
 
-const baseUrl = 'http://localhost:5000/api/customers';
+const baseUrl = 'http://localhost:7082/api/customers';
 
 
 const getAllCustomers = () => requester.get(baseUrl);
