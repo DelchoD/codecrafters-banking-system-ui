@@ -1,6 +1,6 @@
 import requester from "./requester";
 
-const baseUrl = 'http://localhost:5000/api/accounts';
+const baseUrl = 'http://localhost:7082/api/accounts';
 
 
 const getAllAccounts = () => requester.get(baseUrl);
