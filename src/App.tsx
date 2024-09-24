@@ -8,7 +8,6 @@ import AccountCreate from './components/account-create/AccountCreate'
 import AccountsMine from './components/accounts-mine/AccountsMine'
 import Footer from './components/footer/Footer'
 import ForgotPassword from './components/forgot-password/ForgotPassword'
-import Header from './components/header/Header'
 import Home from './components/home/Home'
 import Login from './components/login/Login'
 import Profile from './components/profile/Profile'
@@ -18,6 +17,7 @@ import AccountEdit from './components/account-edit/AccountEdit'
 import Sidebar from './components/sidebar/Sidebar'
 import AccountDetails from './components/account-details/AccountDetails';
 import TransactionsForm from './components/transactions-form/TransactionsForm';
+import Dashboard from './components/dashboard/Dashboard';
 
 function App() {
 
@@ -36,7 +36,9 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
 
+          <Route path='/dashboard' element={<Dashboard />} />
 
+          <Route path='accounts' element={<AccountsMine />}></Route>
           <Route path='/account/create' element={<AccountCreate />} />
           <Route path='/account/mine' element={<AccountsMine />} />
           <Route path='/account/:accountId/details' element={<AccountDetails />} />
