@@ -94,8 +94,10 @@ export default function TransactionsMine() {
 
     return (
         <div>
-            <Row className="mb-3">
-                <Col>
+            <Row className="mb-3 align-items-end">
+            <Col>
+                <Form.Group controlId="fromDate">
+                    <Form.Label>From Date</Form.Label>
                     <Form.Control
                         type="date"
                         name="fromDate"
@@ -103,8 +105,11 @@ export default function TransactionsMine() {
                         onChange={handleFilterChange}
                         placeholder="From Date"
                     />
-                </Col>
-                <Col>
+                </Form.Group>
+            </Col>
+            <Col>
+                <Form.Group controlId="toDate">
+                    <Form.Label>To Date</Form.Label>
                     <Form.Control
                         type="date"
                         name="toDate"
@@ -112,8 +117,11 @@ export default function TransactionsMine() {
                         onChange={handleFilterChange}
                         placeholder="To Date"
                     />
-                </Col>
-                <Col>
+                </Form.Group>
+            </Col>
+            <Col>
+                <Form.Group controlId="type">
+                    <Form.Label>Transaction Type</Form.Label>
                     <Form.Select
                         name="type"
                         value={filters.type}
@@ -123,8 +131,11 @@ export default function TransactionsMine() {
                         <option value="Deposit">Deposit</option>
                         <option value="Withdrawal">Withdrawal</option>
                     </Form.Select>
-                </Col>
-                <Col>
+                </Form.Group>
+            </Col>
+            <Col>
+                <Form.Group controlId="minAmount">
+                    <Form.Label>Min Amount</Form.Label>
                     <Form.Control
                         type="number"
                         name="minAmount"
@@ -132,8 +143,11 @@ export default function TransactionsMine() {
                         onChange={handleFilterChange}
                         placeholder="Min Amount"
                     />
-                </Col>
-                <Col>
+                </Form.Group>
+            </Col>
+            <Col>
+                <Form.Group controlId="maxAmount">
+                    <Form.Label>Max Amount</Form.Label>
                     <Form.Control
                         type="number"
                         name="maxAmount"
@@ -141,13 +155,14 @@ export default function TransactionsMine() {
                         onChange={handleFilterChange}
                         placeholder="Max Amount"
                     />
-                </Col>
-                <Col>
-                    <Button onClick={() => setFilters({ fromDate: '', toDate: today, type: '', minAmount: '', maxAmount: '' })}>
-                        Clear Filters
-                    </Button>
-                </Col>
-            </Row>
+                </Form.Group>
+            </Col>
+            <Col xs="auto">
+                <Button onClick={() => setFilters({ fromDate: '', toDate: today, type: '', minAmount: '', maxAmount: '' })}>
+                    Clear Filters
+                </Button>
+            </Col>
+        </Row>
 
             <Table striped bordered hover>
                 <thead>
