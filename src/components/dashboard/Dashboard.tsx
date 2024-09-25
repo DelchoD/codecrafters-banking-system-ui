@@ -94,7 +94,7 @@ const Dashboard: React.FC = () => {
                     </tbody>
                   </Table>
                   {/* View Full History button */}
-                  <Button variant="success" onClick={handleViewFullHistory} style={{ marginTop: '10px' }}>
+                  <Button variant="secondary" onClick={handleViewFullHistory} style={{ marginTop: '10px' }}>
                     View Full History
                   </Button>
                 </div>
