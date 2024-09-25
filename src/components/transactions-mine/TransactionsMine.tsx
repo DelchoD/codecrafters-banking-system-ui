@@ -14,16 +14,17 @@ interface Transaction {
 }
 
 const transactions: Transaction[] = [
-    { id: '1', date: '2024-01-01', type: 'Deposit', amount: 10, description: "Donation", iban_to: "BG18RZBB91550123456789" },
+    { id: '1', date: '2024-01-01', type: 'Withdrawal', amount: 10, description: "Donation", iban_to: "BG18RZBB91550123456789" },
     { id: '2', date: '2024-02-02', type: 'Withdrawal', amount: 20, description: "ATM Withdrawal", iban_to: "BG18RZBB91550123456782" },
-    { id: '3', date: '2024-03-03', type: 'Deposit', amount: 25, description: "Groceries", iban_to: "BG18RZBB91550123456783" },
+    { id: '3', date: '2024-03-03', type: 'Withdrawal', amount: 25, description: "Groceries", iban_to: "BG18RZBB91550123456783" },
     { id: '4', date: '2024-04-04', type: 'Withdrawal', amount: 10, description: "Donation", iban_to: "BG18RZBB91550123456784" },
-    { id: '5', date: '2024-05-05', type: 'Deposit', amount: 50, description: "Gym Membership", iban_to: "BG18RZBB91550123456785" },
-    { id: '6', date: '2024-06-06', type: 'Withdrawal', amount: 8000, description: "Salary", iban_to: "BG18RZBB91550123456788" },
-    { id: '7', date: '2024-07-07', type: 'Deposit', amount: 20, description: "Donation", iban_to: "BG18RZBB91550123456786" },
+    { id: '5', date: '2024-05-05', type: 'Withdrawal', amount: 50, description: "Gym Membership", iban_to: "BG18RZBB91550123456785" },
+    { id: '6', date: '2024-06-06', type: 'Deposit', amount: 8000, description: "Salary", iban_to: "BG18RZBB91550123456788" },
+    { id: '7', date: '2024-07-07', type: 'Withdrawal', amount: 20, description: "Donation", iban_to: "BG18RZBB91550123456786" },
     { id: '8', date: '2024-08-08', type: 'Withdrawal', amount: 500, description: "Freelance Work", iban_to: "BG18RZBB91550123456787" },
     { id: '9', date: '2024-09-09', type: 'Withdrawal', amount: 10000, description: "Transaction", iban_to: "BG18RZBB91550123456783" },
-    { id: '11', date: '2024-09-11', type: 'Deposit', amount: 15, description: "Donation", iban_to: "BG18RZBB91550133456789" },
+    { id: '11', date: '2024-09-11', type: 'Deposit', amount: 300, description: "Bonus", iban_to: "BG18RZBB91550133456789" },
+    { id: '11', date: '2024-09-11', type: 'Deposit', amount: 1500, description: "Sell bike", iban_to: "BG18RZBB91550133456789" },
 ];
 
 export default function TransactionsMine() {
