@@ -179,8 +179,9 @@ const TransactionForm: React.FC = () => {
             <Button variant="primary" type="submit" className="me-2" disabled={isSubmitting}>
               {isSubmitting ? <Spinner animation="border" size="sm" /> : "Create Transaction"}
             </Button>
+
             <Link to="/transactions/history">
-              <Button variant="secondary" className="mt-3">
+              <Button variant="secondary" className="ms-2">
                 View Transaction History
               </Button>
             </Link>
