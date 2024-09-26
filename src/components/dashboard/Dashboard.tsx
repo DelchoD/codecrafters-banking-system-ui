@@ -21,7 +21,7 @@ const accounts: Account[] = [
   {
     id: '1',
     name: 'Checking Account',
-    balance: 1000,
+    balance: 2480.5,
     recentTransactions: [
       { date: '2024-09-01', amount: 200, description: 'Salary Deposit' },
       { date: '2024-09-02', amount: 50, description: 'ATM Withdrawal' },
@@ -34,22 +34,41 @@ const accounts: Account[] = [
   {
     id: '2',
     name: 'Savings Account',
-    balance: 5000,
+    balance: 6325,
     recentTransactions: [
-      { date: '2024-09-01', amount: 1000, description: 'Initial Deposit' },
-      { date: '2024-09-10', amount: 200, description: 'Emergency Fund Withdrawal' },
+      { date: '2024-09-01', amount: 5000, description: 'Initial Deposit' },
+      { date: '2024-09-01', amount: 2000, description: 'Deposit' },
+      { date: '2024-09-10', amount: 675, description: 'Emergency Fund Withdrawal' },
+    ],
+  },
+  {
+    id: '3',
+    name: 'Business Account',
+    balance: 20000,
+    recentTransactions: [
+      { date: '2024-09-01', amount: 30000, description: 'Initial Deposit' },
+      { date: '2024-09-10', amount: 10000, description: 'Pay salaries' },
+    ],
+  },
+  {
+    id: '4', // Make sure the ID is unique
+    name: 'Travel Fund',
+    balance: 1600,
+    recentTransactions: [
+      { date: '2024-09-01', amount: 900, description: 'Deposit' },
+      { date: '2024-09-10', amount: 700, description: 'Deposit' },
     ],
   },
 ];
 
 const Dashboard: React.FC = () => {
-  // State to manage which account is expanded
-  const [expandedAccount, setExpandedAccount] = useState<string | null>(null);
+  // State to manage which accounts are expanded
+  const [expandedAccounts, setExpandedAccounts] = useState<{ [key: string]: boolean }>({});
   const navigate = useNavigate(); // Initialize useNavigate
 
   // Function to toggle expanded view for each account
   const toggleExpand = (id: string) => {
-    setExpandedAccount(expandedAccount === id ? null : id);
+    setExpandedAccounts(prev => ({ ...prev, [id]: !prev[id] }));
   };
 
   // Function to navigate to the transactions history
@@ -67,11 +86,11 @@ const Dashboard: React.FC = () => {
               <Card.Text className="flex-grow-1">Balance: ${account.balance}</Card.Text>
               {/* Expand/collapse button */}
               <Button variant="primary" onClick={() => toggleExpand(account.id)}>
-                {expandedAccount === account.id ? 'Collapse' : 'Expand'}
+                {expandedAccounts[account.id] ? 'Collapse' : 'Expand'}
               </Button>
 
               {/* Display recent transactions when the card is expanded */}
-              {expandedAccount === account.id && (
+              {expandedAccounts[account.id] && (
                 <div className="mt-3">
                   <h5>Recent Transactions:</h5>
                   <Table striped bordered hover size="sm" responsive>
@@ -94,7 +113,7 @@ const Dashboard: React.FC = () => {
                     </tbody>
                   </Table>
                   {/* View Full History button */}
-                  <Button variant="success" onClick={handleViewFullHistory} style={{ marginTop: '10px' }}>
+                  <Button variant="secondary" onClick={handleViewFullHistory} style={{ marginTop: '10px' }}>
                     View Full History
                   </Button>
                 </div>

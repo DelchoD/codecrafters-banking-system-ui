@@ -14,16 +14,17 @@ interface Transaction {
 }
 
 const transactions: Transaction[] = [
-    { id: '1', date: '2024-01-01', type: 'Deposit', amount: 10, description: "Donation", iban_to: "BG18RZBB91550123456789" },
-    { id: '2', date: '2024-02-02', type: 'Withdrawal', amount: 20, description: "Donation", iban_to: "BG18RZBB91550123456782" },
-    { id: '3', date: '2024-03-03', type: 'Deposit', amount: 30, description: "Donation", iban_to: "BG18RZBB91550123456783" },
-    { id: '4', date: '2024-04-04', type: 'Withdrawal', amount: 1010, description: "Donation", iban_to: "BG18RZBB91550123456784" },
-    { id: '5', date: '2024-05-05', type: 'Deposit', amount: 2010, description: "Donation", iban_to: "BG18RZBB91550123456785" },
-    { id: '6', date: '2024-06-06', type: 'Withdrawal', amount: 8000, description: "Donation", iban_to: "BG18RZBB91550123456788" },
-    { id: '7', date: '2024-07-07', type: 'Deposit', amount: 500, description: "Donation", iban_to: "BG18RZBB91550123456786" },
-    { id: '8', date: '2024-08-08', type: 'Withdrawal', amount: 1000, description: "Donation", iban_to: "BG18RZBB91550123456787" },
-    { id: '9', date: '2024-09-09', type: 'Withdrawal', amount: 111111, description: "Donation", iban_to: "BG18RZBB91550123456783" },
-    { id: '11', date: '2024-09-11', type: 'Deposit', amount: 2500, description: "Donation", iban_to: "BG18RZBB91550133456789" },
+    { id: '1', date: '2024-01-01', type: 'Withdrawal', amount: 10, description: "Donation", iban_to: "BG18RZBB91550123456789" },
+    { id: '2', date: '2024-02-02', type: 'Withdrawal', amount: 20, description: "ATM Withdrawal", iban_to: "BG18RZBB91550123456782" },
+    { id: '3', date: '2024-03-03', type: 'Withdrawal', amount: 25, description: "Groceries", iban_to: "BG18RZBB91550123456783" },
+    { id: '4', date: '2024-04-04', type: 'Withdrawal', amount: 10, description: "Donation", iban_to: "BG18RZBB91550123456784" },
+    { id: '5', date: '2024-05-05', type: 'Withdrawal', amount: 50, description: "Gym Membership", iban_to: "BG18RZBB91550123456785" },
+    { id: '6', date: '2024-06-06', type: 'Deposit', amount: 8000, description: "Salary", iban_to: "BG18RZBB91550123456788" },
+    { id: '7', date: '2024-07-07', type: 'Withdrawal', amount: 20, description: "Donation", iban_to: "BG18RZBB91550123456786" },
+    { id: '8', date: '2024-08-08', type: 'Withdrawal', amount: 500, description: "Freelance Work", iban_to: "BG18RZBB91550123456787" },
+    { id: '9', date: '2024-09-09', type: 'Withdrawal', amount: 10000, description: "Transaction", iban_to: "BG18RZBB91550123456783" },
+    { id: '11', date: '2024-09-11', type: 'Deposit', amount: 300, description: "Bonus", iban_to: "BG18RZBB91550133456789" },
+    { id: '11', date: '2024-09-11', type: 'Deposit', amount: 1500, description: "Sell bike", iban_to: "BG18RZBB91550133456789" },
 ];
 
 export default function TransactionsMine() {
@@ -94,8 +95,10 @@ export default function TransactionsMine() {
 
     return (
         <div>
-            <Row className="mb-3">
-                <Col>
+            <Row className="mb-3 align-items-end">
+            <Col>
+                <Form.Group controlId="fromDate">
+                    <Form.Label>From Date</Form.Label>
                     <Form.Control
                         type="date"
                         name="fromDate"
@@ -103,8 +106,11 @@ export default function TransactionsMine() {
                         onChange={handleFilterChange}
                         placeholder="From Date"
                     />
-                </Col>
-                <Col>
+                </Form.Group>
+            </Col>
+            <Col>
+                <Form.Group controlId="toDate">
+                    <Form.Label>To Date</Form.Label>
                     <Form.Control
                         type="date"
                         name="toDate"
@@ -112,8 +118,11 @@ export default function TransactionsMine() {
                         onChange={handleFilterChange}
                         placeholder="To Date"
                     />
-                </Col>
-                <Col>
+                </Form.Group>
+            </Col>
+            <Col>
+                <Form.Group controlId="type">
+                    <Form.Label>Transaction Type</Form.Label>
                     <Form.Select
                         name="type"
                         value={filters.type}
@@ -123,8 +132,11 @@ export default function TransactionsMine() {
                         <option value="Deposit">Deposit</option>
                         <option value="Withdrawal">Withdrawal</option>
                     </Form.Select>
-                </Col>
-                <Col>
+                </Form.Group>
+            </Col>
+            <Col>
+                <Form.Group controlId="minAmount">
+                    <Form.Label>Min Amount</Form.Label>
                     <Form.Control
                         type="number"
                         name="minAmount"
@@ -132,8 +144,11 @@ export default function TransactionsMine() {
                         onChange={handleFilterChange}
                         placeholder="Min Amount"
                     />
-                </Col>
-                <Col>
+                </Form.Group>
+            </Col>
+            <Col>
+                <Form.Group controlId="maxAmount">
+                    <Form.Label>Max Amount</Form.Label>
                     <Form.Control
                         type="number"
                         name="maxAmount"
@@ -141,13 +156,14 @@ export default function TransactionsMine() {
                         onChange={handleFilterChange}
                         placeholder="Max Amount"
                     />
-                </Col>
-                <Col>
-                    <Button onClick={() => setFilters({ fromDate: '', toDate: today, type: '', minAmount: '', maxAmount: '' })}>
-                        Clear Filters
-                    </Button>
-                </Col>
-            </Row>
+                </Form.Group>
+            </Col>
+            <Col xs="auto">
+                <Button onClick={() => setFilters({ fromDate: '', toDate: today, type: '', minAmount: '', maxAmount: '' })}>
+                    Clear Filters
+                </Button>
+            </Col>
+        </Row>
 
             <Table striped bordered hover>
                 <thead>

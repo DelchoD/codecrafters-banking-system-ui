@@ -6,11 +6,11 @@ import { useForm } from '../../hooks/useForm';
 //this will be changed when connected to backend
 const initialValues = { 
     firstName: 'John',
-    middleName: 'Doe',
+    middleName: 'Lee',
     lastName: 'Doe',
-    email: 'dummy@gmail.com',
+    email: 'johndoe@gmail.com',
     password: 'qwerty',
-    address: 'address 10',
+    address: 'Sofia, Ivan Vazov 10',
 };
 
 export default function Profile() {
