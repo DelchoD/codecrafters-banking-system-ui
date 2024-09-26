@@ -30,7 +30,6 @@ const Home = () => {
           </Button>
         </Form>
 
-        {/* Forgot Password Button */}
         <div className="text-center mt-3">
           <NavLink to="/forgot-password" className="text-primary">
             <Button variant="link" className="p-0">
