@@ -16,8 +16,12 @@ interface Account {
   recentTransactions: Transaction[];
 }
 
+interface DashboardProps {
+  showDeleteButton?: boolean; // Add optional prop to control delete button visibility
+}
+
 // Example mock data, replace with real data fetched from the backend when available.
-const accounts: Account[] = [
+const initialAccounts: Account[] = [
   {
     id: '1',
     name: 'Checking Account',
@@ -61,8 +65,9 @@ const accounts: Account[] = [
   },
 ];
 
-const Dashboard: React.FC = () => {
-  // State to manage which accounts are expanded
+const Dashboard: React.FC<DashboardProps> = ({ showDeleteButton = false }) => {
+  // State to manage accounts and expanded views
+  const [accounts, setAccounts] = useState<Account[]>(initialAccounts);
   const [expandedAccounts, setExpandedAccounts] = useState<{ [key: string]: boolean }>({});
   const navigate = useNavigate(); // Initialize useNavigate
 
@@ -74,6 +79,11 @@ const Dashboard: React.FC = () => {
   // Function to navigate to the transactions history
   const handleViewFullHistory = () => {
     navigate('/transactions/history'); // Redirect to the transactions history page
+  };
+
+  // Function to delete an account by ID
+  const deleteAccount = (id: string) => {
+    setAccounts(prevAccounts => prevAccounts.filter(account => account.id !== id));
   };
 
   return (
@@ -116,6 +126,17 @@ const Dashboard: React.FC = () => {
                   <Button variant="secondary" onClick={handleViewFullHistory} style={{ marginTop: '10px' }}>
                     View Full History
                   </Button>
+
+                  {/* Conditionally render delete button if showDeleteButton is true */}
+                  {showDeleteButton && (
+                    <Button
+                      variant="danger"
+                      onClick={() => deleteAccount(account.id)}
+                      style={{ marginTop: '10px', marginLeft: '10px' }}
+                    >
+                      Delete Account
+                    </Button>
+                  )}
                 </div>
               )}
             </Card.Body>
