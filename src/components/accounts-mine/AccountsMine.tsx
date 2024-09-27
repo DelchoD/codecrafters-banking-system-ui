@@ -1,6 +1,3 @@
-import AccountListItem from "../account-list-item/AccountListItem";
-import { useAuthContext } from "../../contexts/AuthContext";
-import { useGetAccountsByUserId } from "../../hooks/account-hooks";
 import Dashboard from "../dashboard/Dashboard";
 import { Button, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -24,12 +21,9 @@ export default function AccountsMine() {
                             Create Account
                         </Button>
                     </Link>
-                    <Button variant="danger" onClick={handleDeleteAccount}>
-                        Delete Account
-                    </Button>
                 </Col>
             </Row>
-            <Dashboard />
+            <Dashboard showDeleteButton={true} />
         </Container>
     );
 }
